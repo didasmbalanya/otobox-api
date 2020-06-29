@@ -18,7 +18,7 @@ export class Base<T> extends Model<T> {
 @ObjectType({ isAbstract: true })
 export class BaseUUID<T> extends Model<T> {
   @BeforeValidate
-  static makeUUID(instance: Model) {
+  static makeUUID(instance: Model): void {
     // this will be called when an instance is created or updated
     instance.id = uuidv4();
   }

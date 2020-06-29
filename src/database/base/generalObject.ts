@@ -1,14 +1,13 @@
-import { Table, Column, DataType, HasMany } from 'sequelize-typescript';
+import { Table, Column, DataType } from 'sequelize-typescript';
 import { ObjectType, Field } from 'type-graphql';
-import { Base } from '../base/base';
-import User from './user';
+import { Base } from './base';
 
 @ObjectType()
 @Table({
   paranoid: true,
   timestamps: true,
 })
-export default class Role extends Base<Role> implements IRole {
+export class GeneralObject<T> extends Base<T> implements IGeneralObject {
   @Field()
   @Column({
     type: DataType.STRING,
@@ -17,18 +16,14 @@ export default class Role extends Base<Role> implements IRole {
   })
   name: string;
 
-  @Field()
+  @Field({ nullable: true })
   @Column({
     type: DataType.STRING,
-    allowNull: false,
   })
   description: string;
-
-  @HasMany(() => User, 'roleId')
-  users: User[];
 }
 
-export interface IRole {
+export interface IGeneralObject {
   name: string;
   description: string;
 }
