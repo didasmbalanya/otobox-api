@@ -21,13 +21,13 @@ export default class User extends BaseUUID<User> implements IUser {
   @Column({
     type: DataType.STRING,
   })
-  firstname: string;
+  firstName: string;
 
   @Field({ nullable: true })
   @Column({
     type: DataType.STRING,
   })
-  lastname: string;
+  lastName: string;
 
   @Field()
   @Column({
@@ -90,8 +90,8 @@ export default class User extends BaseUUID<User> implements IUser {
 
 export interface IUser {
   id: string;
-  firstname?: string;
-  lastname?: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   password?: string;
   profileImage?: string;

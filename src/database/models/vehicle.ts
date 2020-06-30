@@ -34,11 +34,11 @@ export default class Vehicle extends GeneralObject<Vehicle>
   @Column({
     type: DataType.STRING,
   })
-  image: string;
+  imageUrl: string;
 
   @Field(() => Int, { nullable: true })
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
   })
   year: number;
 
@@ -50,13 +50,13 @@ export default class Vehicle extends GeneralObject<Vehicle>
 
   @Field(() => Int, { nullable: true })
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
   })
   sellingPrice: number;
 
   @Field(() => Int, { nullable: true })
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
   })
   rentingPrice: number;
 
@@ -90,7 +90,7 @@ export interface IVehicle {
   name: string;
   description: string;
   logo: string;
-  image: string;
+  imageUrl: string;
   model: string;
   makeId: number;
   categoryId: number;
